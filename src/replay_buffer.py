@@ -4,14 +4,14 @@ import numpy as np
 # Handling the replay buffer, keeping track of the state, action, reward, and new state.
 class ReplayBuffer(object):
     def __init__(self, max_size, input_shape):
-        self.mem_size = max_size
-        self.mem_cntr = 0
+        self.mem_size = max_size  # Maximum size of the replay buffer.
+        self.mem_cntr = 0  # Counter for the replay buffer.
 
-        self.state_memory = np.zeros((self.mem_size, *input_shape), dtype=np.float32)
-        self.new_state_memory = np.zeros((self.mem_size, *input_shape), dtype=np.float32)
-        self.action_memory = np.zeros(self.mem_size, dtype=np.int32)
-        self.reward_memory = np.zeros(self.mem_size, dtype=np.float32)
-        self.terminal_memory = np.zeros(self.mem_size, dtype=np.uint8)
+        self.state_memory = np.zeros((self.mem_size, *input_shape), dtype=np.float32)  # Storing the state.
+        self.new_state_memory = np.zeros((self.mem_size, *input_shape), dtype=np.float32)  # Storing the new state.
+        self.action_memory = np.zeros(self.mem_size, dtype=np.int32)  # Storing the action.
+        self.reward_memory = np.zeros(self.mem_size, dtype=np.float32)  # Storing the reward.
+        self.terminal_memory = np.zeros(self.mem_size, dtype=np.uint8)  # Storing the done flag.
 
     # Storing the state, action, reward, new state, and done flag.
     def store_transition(self, state, action, reward, new_state, done):

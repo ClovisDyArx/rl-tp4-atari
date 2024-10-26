@@ -40,5 +40,3 @@ class DQN(nn.Module):
 def build_dqn(n_actions, input_dims, fc1_dims):
     model = DQN(input_dims, n_actions, fc1_dims).to(device)
     return model
-
-# FIXME: don't forget to add the optimizer and criterion in the training loop.

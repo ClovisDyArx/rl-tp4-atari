@@ -8,7 +8,7 @@ import ale_py
 gym.register_envs(ale_py)
 
 if __name__ == '__main__':
-    env = make_env("Ale/Pong-v5")
+    env = make_env("PongNoFrameskip-v4")
     num_games = 250
     load_checkpoint = False
     best_score = -21

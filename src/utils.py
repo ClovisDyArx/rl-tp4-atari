@@ -43,7 +43,7 @@ class PreprocessFrame(gym.ObservationWrapper):
 class MoveImgChannel(gym.ObservationWrapper):
     def __init__(self, env=None):
         super(MoveImgChannel, self).__init__(env)
-        self.shape = (self.shape[-1], self.shape[0], self.shape[1])
+        self.shape = (env.observation_space.shape[-1], env.observation_space.shape[0], env.observation_space.shape[1])
         self.observation_space = gym.spaces.Box(low=0.0, high=1.0, shape=self.shape, dtype=np.float32)
 
     def observation(self, observation):

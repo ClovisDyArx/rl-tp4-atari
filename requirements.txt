@@ -1,4 +1,8 @@
 numpy
 torch
-gym
-gym[atari]
+gymnasium
+ale_py
+matplotlib
+pygame
+gymnasium[atari, accept-rom-license]
+opencv-python

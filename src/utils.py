@@ -1,5 +1,9 @@
-import gym
+import gymnasium as gym
 import numpy as np
+import matplotlib.pyplot as plt
+import ale_py
+
+gym.register_envs(ale_py)
 
 
 class SkipEnv(gym.Wrapper):
@@ -78,7 +82,6 @@ def make_env(env_name):
 
 
 def plot_learning_curve(x, scores, eps_history, fname):
-    import matplotlib.pyplot as plt
     fig = plt.figure()
     ax = fig.add_subplot(111, label='1')
     ax2 = fig.add_subplot(111, label='2', frame_on=False)

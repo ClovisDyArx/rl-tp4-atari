@@ -1,6 +1,6 @@
 import numpy as np
 from agent import Agent
-from src.utils import make_env, plot_learning_curve
+from utils import make_env, plot_learning_curve
 
 import gymnasium as gym
 import ale_py
@@ -27,12 +27,12 @@ if __name__ == '__main__':
 
     for i in range(num_games):
         done = False
-        observation = env.reset()
+        observation, _ = env.reset()
         score = 0
 
         while not done:
             action = agent.choose_action(observation)
-            observation_, reward, done, info = env.step(action)
+            observation_, reward, done, _, info = env.step(action)
             n_steps += 1
             score += reward
             if not load_checkpoint:
@@ -60,5 +60,5 @@ if __name__ == '__main__':
                   f"\n")
             best_score = avg_score
 
-        x = [i+1 for i in range(num_games)]
-        plot_learning_curve(x, scores, eps_history, fname)
+    x = [i+1 for i in range(num_games)]
+    plot_learning_curve(x, scores, eps_history, fname)

@@ -9,8 +9,8 @@ gym.register_envs(ale_py)
 
 if __name__ == '__main__':
     env = make_env("PongNoFrameskip-v4")
-    num_games = 250
-    load_checkpoint = False
+    num_games = 500
+    load_checkpoint = True # LAISSEZ A TRUE POUR CHARGER LE MODELE
     best_score = -21
     agent = Agent(gamma=0.99, epsilon=1.0, alpha=0.0001,
                   input_dims=(4, 80, 80),
@@ -60,5 +60,5 @@ if __name__ == '__main__':
                   f"\n")
             best_score = avg_score
 
-    x = [i+1 for i in range(num_games)]
-    plot_learning_curve(x, scores, eps_history, fname)
+    # x = [i+1 for i in range(num_games)]
+    # plot_learning_curve(x, scores, eps_history, fname)

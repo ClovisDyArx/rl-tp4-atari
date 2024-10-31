@@ -85,6 +85,9 @@ def make_env(env_name):
 
 
 def plot_learning_curve(x, scores, eps_history, fname):
+    if len(eps_history) == 0:
+        raise ValueError("eps_history is empty. Ensure it is populated with data before plotting.")
+
     fig = plt.figure()
     ax = fig.add_subplot(111, label='1')
     ax2 = fig.add_subplot(111, label='2', frame_on=False)
@@ -98,7 +101,7 @@ def plot_learning_curve(x, scores, eps_history, fname):
     N = len(scores)
     run_avg = np.empty(N)
     for t in range(N):
-        run_avg[t] = np.mean(scores[max(0, t-10):(t+1)])
+        run_avg[t] = np.mean(scores[max(0, t - 10):(t + 1)])
 
     ax2.scatter(x, run_avg, color='C1')
     ax2.axes.get_xaxis().set_visible(False)

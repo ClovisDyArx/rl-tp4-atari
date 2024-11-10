@@ -91,6 +91,6 @@ class Agent(object):
 
     def load_models(self):
         print("Loading models...")
-        self.q_eval.load_state_dict(torch.load(self.eval_model_file))
-        self.q_next.load_state_dict(torch.load(self.target_model_file))
+        self.q_eval.load_state_dict(torch.load(self.eval_model_file, map_location=self.device, weights_only=True))
+        self.q_next.load_state_dict(torch.load(self.target_model_file, map_location=self.device, weights_only=True))
         print("Models loaded successfully.")

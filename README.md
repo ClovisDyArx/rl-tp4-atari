@@ -1,6 +1,6 @@
 # DQN Pong 🎮
 
-![Pong Animation](https://github.com/ClovisDyArx/rl-tp4-pong/pong_trained_model.mp4)  
+![Pong Animation](https://github.com/ClovisDyArx/rl-tp4-pong/raw/main/pong_trained_model.gif)  
 *A trained Deep Q-Network (DQN) agent playing Atari Pong.*
 
 ## Project Overview

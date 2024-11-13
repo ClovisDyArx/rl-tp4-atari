@@ -9,6 +9,7 @@ from matplotlib import animation
 
 gym.register_envs(ale_py)
 
+
 def animate_model(env, agent, num_episodes=1):
     frames = []
 
@@ -24,6 +25,7 @@ def animate_model(env, agent, num_episodes=1):
     env.close()
     return frames
 
+
 def save_animation(frames, filename="pong_animation.mp4"):
     fig = plt.figure()
     plt.axis('off')
@@ -36,6 +38,7 @@ def save_animation(frames, filename="pong_animation.mp4"):
 
     anim = animation.FuncAnimation(fig, update_frame, frames=len(frames), interval=50, blit=True)
     anim.save(filename, writer='ffmpeg')
+
 
 if __name__ == '__main__':
     env = make_env("PongNoFrameskip-v4")
